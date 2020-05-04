@@ -1,0 +1,68 @@
+
+  body {
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Raleway', sans-serif;
+  }
+  /* .cell {
+      width: 100px;
+      height: 100px;
+      border: 5px solid black;
+      background: white;
+  }
+  td {
+      display: block;
+      width: 100%
+  } */
+
+
+
+  /* #markers {
+      display: grid;
+      grid-template-columns: repeat(7, 10vmin);
+      grid-template-rows: 10vmin;
+      gap: 1vmin;
+      margin-bottom: 1vmin;
+  }
+  #markets div {
+      border-top: 5vmin solid lightgrey;
+      border-left: 5vmin black;
+      border-right: 5vmin black;
+      margin-top: 4vmin;
+      transform: scale(0.7);
+  }
+  #markers div:hover {
+    border-top-color: grey;
+    transition: all .2s ease-in-out;
+    transform: scale(0.8);
+  } */
+    #board {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      grid-template-rows: auto auto auto;
+      grid-row-gap: 0px;
+      grid-column-gap: 0px;
+  }
+  #board DIV {
+      border: 1px solid black;
+      height: 100px;
+      width: 100px;
+  } 
+  #board DIV:nth-child(3n-2) {
+      border-left: 0;
+  }
+  #board DIV:nth-child(3n) {
+      border-right: 0;
+  }
+  #board DIV:nth-child(-n+3){
+      border-top: 0;
+  }
+  #board DIV:nth-child(n+7) {
+      border-bottom: 0;
+  }
+
+
