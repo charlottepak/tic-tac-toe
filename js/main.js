@@ -31,18 +31,28 @@ let player_turn = "x"
 const boxes = document.querySelectorAll("#board DIV")
 boxes.forEach(box => box.addEventListener("click", handleBoxClick))
 
+// handles the click of a box
 function handleBoxClick(e) {
+
+    // determine which box was clicked
     const box = e.target
     console.log("I clicked on ", box)
-    /* display x
-    switch playerß
-    */
+
+    // make sure you cant replace an x or o
+    if (box.innerText == "x" || box.innerText == "o") { 
+       return
+    }
+
+    // fill in the player's icon
     box.innerText = player_turn
+
+    // swich players' turns
     if (player_turn == "o") {
         player_turn = "x"
     } else {
         player_turn = "o"
     }
+    
 }
 /*
 
