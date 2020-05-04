@@ -1,35 +1,23 @@
-//constants
-const playerLookup = {
-    '1': 'X',
-    '-1': 'O',
-    'null': 'transparent'
-};
-
-// //variables
-// let board;  //array of column arrays
-// let turn;  // x or o
-// let winner;  
-
-// document.getElementById('board')
-//     .addEventListener('click', handleClick);
-
-// init();
-
-// function init() {
-//     board = [
-//         [null, null, null],
-//         [null, null, null],
-//         [null, null, null]
-//     ];
-
-//     turn = 1;
-//     winner = null
-// }
-
+// setup
 let player_turn = "x"
 
+// listen for clicks
 const boxes = document.querySelectorAll("#board DIV")
 boxes.forEach(box => box.addEventListener("click", handleBoxClick))
+
+// listen for reset button
+document.querySelector("button").addEventListener("click", resetEverything)
+
+// restarts everything
+function resetEverything() {
+
+    // empty existing box.innerText
+    boxes.forEach(box => box.innerText = "")
+
+    // return to player x
+    player_turn = "x"
+
+}
 
 // handles the click of a box
 function handleBoxClick(e) {
@@ -52,8 +40,10 @@ function handleBoxClick(e) {
     } else {
         player_turn = "o"
     }
-    
+
 }
+
+
 /*
 
 - setup
