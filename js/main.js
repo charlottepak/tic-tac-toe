@@ -5,60 +5,61 @@ const playerLookup = {
     'null': 'transparent'
 };
 
-//variables
-let board;  //array of column arrays
-let turn;  // x or o
-let winner;  
+// //variables
+// let board;  //array of column arrays
+// let turn;  // x or o
+// let winner;  
 
-document.getElementById('board')
-    .addEventListener('click', handleClick);
+// document.getElementById('board')
+//     .addEventListener('click', handleClick);
 
-init();
+// init();
 
-function init() {
-    board = [
-        [null, null, null],
-        [null, null, null],
-        [null, null, null]
-    ];
+// function init() {
+//     board = [
+//         [null, null, null],
+//         [null, null, null],
+//         [null, null, null]
+//     ];
 
-    turn = 1;
-    winner = null
-}   
+//     turn = 1;
+//     winner = null
+// }
 
+let player_turn = "x"
 
+const boxes = document.querySelectorAll("#board DIV")
+boxes.forEach(box => box.addEventListener("click", handleBoxClick))
 
-
-function render() {
-    // Render the board
-    board.forEach(function(colArr, colIdx) {
-      colArr.forEach(function(cell, rowIdx) {
-        const div = document.getElementById(`c${colIdx}r${rowIdx}`);
-        div.style.backgroundColor = playerLookup[cell];
-      });
-    });
-    if (winner) {
-
+function handleBoxClick(e) {
+    const box = e.target
+    console.log("I clicked on ", box)
+    /* display x
+    switch playerß
+    */
+    box.innerText = player_turn
+    if (player_turn == "o") {
+        player_turn = "x"
     } else {
-        msgEl.innerHTML = `<span style="color": ${playerLookup[turn]}">${playerLookup[turn].toUpperCase()}'s Turn`;
+        player_turn = "o"
     }
-  }
-
-function handleClick(evt) {
-   const colIdx = markerEls.indevOf(evt.target);
-   if (colIdx === -1) return;
-   
-   const colArr = board[colIdx];
-   const rowIdx = colArr.indexOf(null);
-   
-   if (colIdx === -1) return;
-
-   colArr[rowIdx] = turn;
-
-
-    turn *= -1;
-    render();
 }
+/*
+
+- setup
+
+- what you're gonna do
+listen for click 
+if a box is click and doesnt already have an x or o then add x or o
+switch player
+repeat until player has 3 x's or o's in a row
+disply winner
+if no x's or o's line up to 3 then it's a tie
+display outcome
+
+- cleanup
+replay
+*/
 
 
 
